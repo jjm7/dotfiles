@@ -51,7 +51,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 "let's get a pretty looking status bar at the bottom
 Plugin 'itchyny/lightline.vim'
 
-"gitgutter shows signs for line additions and modifications or removals if the 
+"gitgutter shows signs for line additions and modifications or removals if the
 "file you are editting is in a git repo
 Plugin 'airblade/vim-gitgutter'
 
@@ -85,8 +85,6 @@ let g:syntastic_python_pep8_args='--ignore=E501'
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_css_checkers = ['stylelint']
 let g:syntastic_always_populate_loc_list=1
-
-
 
 let g:NERDTreeDirArrows=0
 set encoding=utf-8
