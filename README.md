@@ -8,7 +8,7 @@ dotfiles I've curated over the years
 Installation - YMMV
 ```bash
 # Git dotfiles
-git clone --depth 1 git@gitlab.sandia.gov:dzander/dotfiles.git
+git clone --depth 1 ://github.com/jjm7/dotfiles.git
 
 pushd dotfiles
 
