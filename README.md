@@ -5,7 +5,13 @@ dotfiles I've curated over the years
 # Requirements
 
 
+* git
+* tmux
+* vim v7.4 or newer
+* [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+
 Installation - YMMV
+
 ```bash
 # Git dotfiles
 git clone --depth 1 ://github.com/jjm7/dotfiles.git
