@@ -12,14 +12,17 @@ set shiftwidth=4 " shift by 4 spaces
 set expandtab " change tab to 4 spaces
 set encoding=utf-8 " standard encoding for github
 set t_Co=256 " 256 colors in terminal
-
+set hlsearch " search pattern highlighting
+set colorcolumn=100 "vertical line at 100 characters
 syntax on " enable syntax highlighting
 
-map <up> <nop>  "Disable Arroow keys in Normal mode
+" Disable arrow keys in normal and insert mode
+
+map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-imap <up> <nop>  "Disable Arrow keys in Insert mode
+imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
@@ -77,9 +80,10 @@ let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_enable_balloons = 1
 let g:syntastic_python_checkers = ['flake8', 'pep8', 'python']
 let g:syntastic_python_pep8_args='--ignore=E501'
+let g:syntastic_python_flake8_args= '--ignore=E501'
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_css_checkers = ['stylelint']
 let g:syntastic_always_populate_loc_list=1
-
+let g:syntastic_check_on_open=1
 let g:NERDTreeDirArrows=0 " enable dir arrows in nerdTree
 
