@@ -124,7 +124,6 @@ alias DockerAttach='nvidia-docker exec -i -t joshStackMe  /bin/bash'
 alias DockerLoginStackWork='nvidia-docker run --rm -i -t --name joshStackWork --hostname injoshStack -v /mnt/project1/LSTMProbeData/:/ProbeData/ joshmichalenko/stackwork /bin/bash'
 alias DockerAttachStackWork='nvidia-docker exec -i -t joshStackWork /bin/bash'
 
-
 alias tensorDocker='nvidia-docker run --rm -i -t --name joshTensorflow --hostname tensorDock -v /home/jjmich/:/root/ -v /mnt/project1/LSTMProbeData/:/ProbeData/ tensorstandard:latest /bin/bash'
 
 alias tensorDockerAttach='nvidia-docker exec -i -t joshTensorflow /bin/bash'
@@ -132,16 +131,10 @@ alias tensorDockerAttach='nvidia-docker exec -i -t joshTensorflow /bin/bash'
 alias laddieDocker='nvidia-docker run --rm -i -t --name laddieTensorflow \
        		--net=host \
 	       	--hostname $(hostname) \
-		-v /home/jjmich/:/root/ \
-		-v /mnt/project1/LSTMProbeData/:/ProbeData/ \
-	       	-v /mnt/project1/LADDIE/:/LADDIE/ \
-	       	-v /mnt/project1/dfa_rsa/:/dfa_rsa/ \
-	       	-e DISPLAY=$DISPLAY \
-		-v $XSOCK:$XSOCK \
-		-v $XAUTH:$XAUTH \
-	       	-v /home/jjmich/.Xauthority:/root/.Xauthority \
-		tensorstandard:laddiegpu \
-		/bin/bash'
+		    -v /home/jjmich/:/root/ \
+		    -v /mnt/drive1/jjmichSpace/:/jjmichSpace/ \
+		    joshmichalenko/tensorstandard:laddiegpu \
+		    /bin/bash'
 
 alias laddieDockerAttach='nvidia-docker exec -i -t laddieTensorflow /bin/bash'
 
@@ -152,17 +145,19 @@ alias folderSizeSorted='du -sh * | sort -hr'
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 #export DISPLAY=:0
 
+#export XSOCK=/tmp/.X11-unix
+#export XAUTH=/tmp/.docker.xauth-n
 
-export XSOCK=/tmp/.X11-unix
-export XAUTH=/tmp/.docker.xauth-n
+#xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
 
-xauth nlist $DISPLAY | sed -e 's/^..../ffff/' | xauth -f $XAUTH nmerge -
-
-chmod 755 $XAUTH
+#chmod 755 $XAUTH
 
 export TERM=xterm-256color
 
-source /usr/local/shadow-config/path.sh cuda conda robomongo
+#source /usr/local/shadow-config/path.sh cuda conda robomongo
 
-alias cdData='cd /data/projects/shadow/jjmich'
+#alias cdData='cd /data/projects/shadow/jjmich'
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_OPS="--extended"
